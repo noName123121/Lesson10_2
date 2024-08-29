@@ -13,7 +13,9 @@ public class CharacterStateMachine: IStateSwitcher
         _states = new List<IState>()
         {
             new IdlingState(this, data, character),
+            new WalkingState(this, data, character),
             new RunningState(this, data, character),
+            new SprintingState(this, data, character),
             new JumpingState(this, data, character),
             new FallingState(this, data, character),
         };
@@ -25,8 +27,6 @@ public class CharacterStateMachine: IStateSwitcher
     public void SwitchState<T>() where T : IState
     {
         IState state = _states.FirstOrDefault(state => state is T);
-
-        //проверку на null
 
         _currentState.Exit();
         _currentState = state;

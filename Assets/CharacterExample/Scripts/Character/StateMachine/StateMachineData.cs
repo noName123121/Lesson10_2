@@ -5,6 +5,8 @@ public class StateMachineData
 {
     public float XVelocity;
     public float YVelocity;
+    public bool WantsToWalk;
+    public bool WantsToSprint;
 
     private float _speed;
     private float _xInput;

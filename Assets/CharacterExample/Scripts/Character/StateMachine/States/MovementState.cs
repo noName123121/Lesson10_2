@@ -43,6 +43,9 @@ public abstract class MovementState : IState
     }
 
     protected bool IsHorizontalInputZero() => Data.XInput == 0;
+    protected bool WantsToWalk() => Data.WantsToWalk && !Data.WantsToSprint;
+    // We will give priority to sprinting in situations where player holds both buttons for walking and sprinting
+    protected bool WantsToSprint() => Data.WantsToSprint;
 
     private Quaternion GetRotationFrom(Vector3 velocity)
     {
